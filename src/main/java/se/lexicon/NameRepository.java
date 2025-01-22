@@ -102,7 +102,7 @@ public class NameRepository {
                 occurrenceCount++;
         }
         if(occurrenceCount == 0)
-            return null;
+            return new String[]{};
 
         String[] matchingNames = new String[occurrenceCount];
         int index = 0;
@@ -132,7 +132,7 @@ public class NameRepository {
                 occurrenceCount++;
         }
         if(occurrenceCount == 0)
-            return null;
+            return new String[]{};
 
         String[] matchingNames = new String[occurrenceCount];
         int index = 0;

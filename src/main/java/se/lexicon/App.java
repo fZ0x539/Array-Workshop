@@ -34,6 +34,8 @@ public class App {
         System.out.println("Removing Mehrdad Javan: " + NameRepository.remove("Mehrdad javaN"));
         System.out.println("Removing Erik Svensson: " + NameRepository.remove("Kalle Bolle"));
         System.out.println("Removing mehrdad Java: " + NameRepository.remove("mehrdad java"));
+        System.out.println("Removing Fredrik Larsson: " + NameRepository.remove("Fredrik Larsson"));
+
         System.out.println(Arrays.toString(NameRepository.findAll()));
 
     }

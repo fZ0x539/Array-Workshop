@@ -95,7 +95,25 @@ public class NameRepository {
      */
     public static String[] findByFirstName(final String firstName) {
         //todo: PART 3: findByFirstName method
-        return null;
+        int occurrenceCount = 0;
+        for(String name : names){
+            String[] splitNames = name.split(" ");
+            if(splitNames[0].equalsIgnoreCase(firstName))
+                occurrenceCount++;
+        }
+        if(occurrenceCount == 0)
+            return null;
+
+        String[] matchingNames = new String[occurrenceCount];
+        int index = 0;
+        for(int i = 0; i < names.length; i++){
+            String[] splitNames = names[i].split(" ");
+            if(splitNames[0].equalsIgnoreCase(firstName)){
+                matchingNames[index] = names[i];
+                index++;
+            }
+        }
+        return matchingNames;
     }
 
 
@@ -107,7 +125,25 @@ public class NameRepository {
      */
     public static String[] findByLastName(final String lastName) {
         //todo: PART 3: implement findByLastName method
-        return null;
+        int occurrenceCount = 0;
+        for(String name : names){
+            String[] splitNames = name.split(" ");
+            if(splitNames[1].equalsIgnoreCase(lastName))
+                occurrenceCount++;
+        }
+        if(occurrenceCount == 0)
+            return null;
+
+        String[] matchingNames = new String[occurrenceCount];
+        int index = 0;
+        for(int i = 0; i < names.length; i++){
+            String[] splitNames = names[i].split(" ");
+            if(splitNames[1].equalsIgnoreCase(lastName)){
+                matchingNames[index] = names[i];
+                index++;
+            }
+        }
+        return matchingNames;
     }
 
 
@@ -120,6 +156,17 @@ public class NameRepository {
      */
     public static boolean update(final String original, final String updatedName) {
         //todo: PART 3: implement update method
+        for(String name : names){
+            if(name.equalsIgnoreCase(updatedName))
+                return false;
+        }
+
+        for(int i = 0; i < names.length; i++){
+            if(names[i].equalsIgnoreCase(original)){
+                names[i] = updatedName;
+                return true;
+            }
+        }
         return false;
     }
 

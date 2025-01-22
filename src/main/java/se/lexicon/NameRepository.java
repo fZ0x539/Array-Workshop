@@ -179,7 +179,29 @@ public class NameRepository {
      */
     public static boolean remove(final String fullName) {
         //todo: PART 4: implement remove method
-        return false;
+
+        //Checking whether the name is found within the array
+        boolean isPresent = false;
+        for(String name : names){
+            if(name.equalsIgnoreCase(fullName)){
+                isPresent = true;
+                break;
+            }
+        }
+        if(!isPresent)
+            return false;
+
+        //If isPresent, continue
+        String[] newNames = new String[names.length - 1];
+        int index = 0;
+        for(String name : names){
+            if(!name.equalsIgnoreCase(fullName)){
+                newNames[index] = name;
+                index++;
+            }
+        }
+        names = newNames;
+        return true;
     }
 
 
